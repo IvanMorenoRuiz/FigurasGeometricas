@@ -1,3 +1,18 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                title: 'Procesando informacion',
+                icon: 'success',
+                confirmButtonText: 'Continuar',
+                onAfterClose: function () {
+                    // Redirige al usuario después de hacer clic en "Continuar"
+                    window.location.href = 'resultado.php';
+                }
+            });
+        });
+    </script>
+
 <?php
 
 abstract class FiguraGeometrica
@@ -160,58 +175,123 @@ class Circulo extends FiguraGeometrica implements PerimetroM
 }
 ?>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $tipoFigura = $_POST["tipoFigura"];
+<!DOCTYPE html>
+<html lang="en">
 
-    if ($tipoFigura == "Triangulo") {
-        $lado1 = $_POST["lado1"];
-        $lado2 = $_POST["lado2"];
-        $triangulo = new Triangulo($tipoFigura, $lado1, $lado2);
-        echo "<h1>Resultados para el Triángulo:</h1>";
-    } elseif ($tipoFigura == "Rectangulo") {
-        $lado1 = $_POST["lado1"];
-        $lado2 = $_POST["lado2"];
-        $rectangulo = new Rectangulo($tipoFigura, $lado1, $lado2);
-        echo "<h1>Resultados para el Rectángulo:</h1>";
-    } elseif ($tipoFigura == "Cuadrado") {
-        $lado1 = $_POST["lado1"];
-        $cuadrado = new Cuadrado($tipoFigura, $lado1);
-        echo "<h1>Resultados para el Cuadrado:</h1>";
-    } elseif ($tipoFigura == "Circulo") {
-        $radio = $_POST["radio"];
-        $circulo = new Circulo($tipoFigura, $radio);
-        echo "<h1>Resultados para el Círculo:</h1>";
-    }
-
-    echo "<p>Tipo de figura: $tipoFigura</p>";
-
-    if (isset($lado1)) {
-        echo "<p>Lado(s) introducido(s): $lado1";
-        if (isset($lado2)) {
-            echo ", $lado2";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la Figura</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Color de fondo */
+            color: #333; /* Color del texto */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-    } elseif (isset($radio)) {
-        echo "<p>Radio introducido: $radio";
-    }
 
-    echo "</p>";
+        .container {
+            text-align: center;
+        }
 
-    if (isset($triangulo)) {
-        echo "<p>Área: " . $triangulo->area() . "</p>";
-        echo "<p>Perímetro: " . $triangulo->perimetro() . "</p>";
-    } elseif (isset($rectangulo)) {
-        echo "<p>Área: " . $rectangulo->area() . "</p>";
-        echo "<p>Perímetro: " . $rectangulo->perimetro() . "</p>";
-        echo "<p>" . $rectangulo->toString() . "</p>";
-    } elseif (isset($cuadrado)) {
-        echo "<p>Área: " . $cuadrado->area() . "</p>";
-        echo "<p>Perímetro: " . $cuadrado->perimetro() . "</p>";
-        echo "<p>" . $cuadrado->toString() . "</p>";
-    } elseif (isset($circulo)) {
-        echo "<p>Área: " . $circulo->area() . "</p>";
-        echo "<p>Perímetro: " . $circulo->perimetro() . "</p>";
-        echo "<p>" . $circulo->toString() . "</p>";
-    }
-}
-?>
+        h1 {
+            color: #4169e1; /* Color del encabezado */
+        }
+
+        .result-box {
+            background-color: #fff; /* Color del fondo del resultado */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .success-icon {
+            color: #28a745; /* Color del icono de éxito */
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $tipoFigura = $_POST["tipoFigura"];
+
+            if ($tipoFigura == "Triangulo") {
+                $lado1 = $_POST["lado1"];
+                $lado2 = $_POST["lado2"];
+                $triangulo = new Triangulo($tipoFigura, $lado1, $lado2);
+                echo "<div class='result-box'>";
+                echo "<div class='success-icon'>✔</div>";
+                echo "<h1>Resultados para el Triángulo:</h1>";
+            } elseif ($tipoFigura == "Rectangulo") {
+                $lado1 = $_POST["lado1"];
+                $lado2 = $_POST["lado2"];
+                $rectangulo = new Rectangulo($tipoFigura, $lado1, $lado2);
+                echo "<div class='result-box'>";
+                echo "<div class='success-icon'>✔</div>";
+                echo "<h1>Resultados para el Rectángulo:</h1>";
+            } elseif ($tipoFigura == "Cuadrado") {
+                $lado1 = $_POST["lado1"];
+                $cuadrado = new Cuadrado($tipoFigura, $lado1);
+                echo "<div class='result-box'>";
+                echo "<div class='success-icon'>✔</div>";
+                echo "<h1>Resultados para el Cuadrado:</h1>";
+            } elseif ($tipoFigura == "Circulo") {
+                $radio = $_POST["radio"];
+                $circulo = new Circulo($tipoFigura, $radio);
+                echo "<div class='result-box'>";
+                echo "<div class='success-icon'>✔</div>";
+                echo "<h1>Resultados para el Círculo:</h1>";
+            }
+
+            echo "<p>Tipo de figura: $tipoFigura</p>";
+
+            if (isset($lado1)) {
+                echo "<p>Lado(s) introducido(s): $lado1";
+                if (isset($lado2)) {
+                    echo ", $lado2";
+                }
+            } elseif (isset($radio)) {
+                echo "<p>Radio introducido: $radio";
+            }
+
+            echo "</p>";
+
+            if (isset($triangulo)) {
+                echo "<p>Área: " . $triangulo->area() . "</p>";
+                echo "<p>Perímetro: " . $triangulo->perimetro() . "</p>";
+            } elseif (isset($rectangulo)) {
+                echo "<p>Área: " . $rectangulo->area() . "</p>";
+                echo "<p>Perímetro: " . $rectangulo->perimetro() . "</p>";
+                echo "<p>" . $rectangulo->toString() . "</p>";
+            } elseif (isset($cuadrado)) {
+                echo "<p>Área: " . $cuadrado->area() . "</p>";
+                echo "<p>Perímetro: " . $cuadrado->perimetro() . "</p>";
+                echo "<p>" . $cuadrado->toString() . "</p>";
+            } elseif (isset($circulo)) {
+                echo "<p>Área: " . $circulo->area() . "</p>";
+                echo "<p>Perímetro: " . $circulo->perimetro() . "</p>";
+                echo "<p>" . $circulo->toString() . "</p>";
+            }
+
+            echo "</div>";
+        }
+        ?>
+    </div>
+</body>
+
+</html>
