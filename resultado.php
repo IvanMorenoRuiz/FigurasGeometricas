@@ -258,34 +258,34 @@ class Circulo extends FiguraGeometrica implements PerimetroM
                 echo "<h1>Resultados para el Círculo:</h1>";
             }
 
-            echo "<p>Tipo de figura: $tipoFigura</p>";
+            echo "<p>Tipo de figura: $tipoFigura </p>";
 
             if (isset($lado1)) {
-                echo "<p>Lado(s) introducido(s): $lado1";
+                echo "<p>Medida(s) introducido(s): $lado1 cm";
                 if (isset($lado2)) {
                     echo ", $lado2";
                 }
             } elseif (isset($radio)) {
-                echo "<p>Radio introducido: $radio";
+                echo "<p>Radio introducido: $radio cm";
             }
 
             echo "</p>";
 
             if (isset($triangulo)) {
-                echo "<p>Área: " . $triangulo->area() . "</p>";
-                echo "<p>Perímetro: " . $triangulo->perimetro() . "</p>";
+                echo "<p>Área: " . $triangulo->area() . "cm²</p>";
+                echo "<p>Perímetro: " . $triangulo->perimetro() . "cm</p>";
             } elseif (isset($rectangulo)) {
-                echo "<p>Área: " . $rectangulo->area() . "</p>";
-                echo "<p>Perímetro: " . $rectangulo->perimetro() . "</p>";
-                echo "<p>" . $rectangulo->toString() . "</p>";
+                echo "<p>Área: " . $rectangulo->area() . "cm²</p>";
+                echo "<p>Perímetro: " . $rectangulo->perimetro() . "cm</p>";
+                echo "<p>" . $rectangulo->toString() . "cm</p>";
             } elseif (isset($cuadrado)) {
-                echo "<p>Área: " . $cuadrado->area() . "</p>";
-                echo "<p>Perímetro: " . $cuadrado->perimetro() . "</p>";
-                echo "<p>" . $cuadrado->toString() . "</p>";
+                echo "<p>Área: " . $cuadrado->area() . "cm²</p>";
+                echo "<p>Perímetro: " . $cuadrado->perimetro() . "cm</p>";
+                echo "<p>" . $cuadrado->toString() . "cm</p>";
             } elseif (isset($circulo)) {
-                echo "<p>Área: " . $circulo->area() . "</p>";
-                echo "<p>Perímetro: " . $circulo->perimetro() . "</p>";
-                echo "<p>" . $circulo->toString() . "</p>";
+                echo "<p>Área: " . $circulo->area() . "cm²</p>";
+                echo "<p>Perímetro: " . $circulo->perimetro() . "cm</p>";
+                echo "<p>" . $circulo->toString() . "cm</p>";
             }
 
             echo "</div>";
