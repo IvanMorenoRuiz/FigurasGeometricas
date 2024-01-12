@@ -21,8 +21,10 @@ h1 {
 form {
     background-color: #fff;
     padding: 20px;
+    width: 500px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Añadido para centrar el formulario */
 }
 
 label {
@@ -37,20 +39,21 @@ input[type="text"] {
     margin-bottom: 16px;
     border: 1px solid #4169e1;
     border-radius: 4px;
+    box-sizing: border-box; /* Añadido para que el ancho incluya el relleno y el borde */
 }
 
 select {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;
-    border: 1px solid #4169e1; /* Color del borde del cuadro de selección */
+    border: 1px solid #4169e1;
     border-radius: 4px;
 }
 
 input[type="submit"] {
     background-color: #4169e1;
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -60,7 +63,6 @@ input[type="submit"]:hover {
     background-color: #001f3f;
 }
 
-/* Estilos para el botón de volver */
 button {
     background-color: #4169e1;
     color: white;
