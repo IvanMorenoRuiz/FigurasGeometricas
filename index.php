@@ -23,61 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleccionar Figura</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff; /* Color de fondo */
-            color: #333; /* Color del texto */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        h1 {
-            color: #4169e1; /* Color del encabezado */
-        }
-
-        form {
-            background-color: #fff; /* Color del fondo del formulario */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #4169e1; /* Color del texto de la etiqueta */
-        }
-
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #4169e1; /* Color del borde del cuadro de selección */
-            border-radius: 4px;
-        }
-
-        input[type="submit"] {
-            background-color: #4169e1; /* Color del fondo del botón */
-            color: #fff; /* Color del texto del botón */
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #001f3f; /* Color de fondo al pasar el ratón sobre el botón */
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
