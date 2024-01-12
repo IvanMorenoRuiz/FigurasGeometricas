@@ -17,7 +17,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $tipoFigura = $_GET["tipoFigura"];
 
-            echo "<h1>Medidas del $tipoFigura:</h1>";
+            echo "<h1>MEDIDAS DEL: $tipoFigura</h1>";
 
             echo "<form method='post' action='resultado.php'>";
             echo "<input type='hidden' name='tipoFigura' value='$tipoFigura'>";
@@ -44,3 +44,4 @@
 </body>
 
 </html>
+
