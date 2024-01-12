@@ -1,9 +1,11 @@
+
+
 $(document).ready(function () {
     Swal.fire({
         title: 'Primer paso hecho',
         icon: 'success',
         confirmButtonText: 'Continuar',
-        onAfterClose: function () {
+        onClose: function () {
             window.location.href = 'resultado.php';
         }
     });
@@ -31,25 +33,40 @@ function validarFormulario() {
         var lado2 = parseFloat($("input[name='lado2']").val());
 
         if (lado1 <= 0 || lado2 <= 0 || isNaN(lado1) || isNaN(lado2)) {
-            alert("Por favor, ingresa valores válidos para los lados.");
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa valores válidos para los lados.',
+                icon: 'error'
+            });
             return false;
         }
     } else if (tipoFigura === "Circulo") {
         var radio = parseFloat($("input[name='radio']").val());
 
         if (radio <= 0 || isNaN(radio)) {
-            alert("Por favor, ingresa un valor válido para el radio.");
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa un valor válido para el radio.',
+                icon: 'error'
+            });
             return false;
         }
     } else {
         var lado = parseFloat($("input[name='lado1']").val());
 
         if (lado <= 0 || isNaN(lado)) {
-            alert("Por favor, ingresa un valor válido para el lado.");
+            Swal.fire({
+                title: 'Error',
+                text: 'Por favor, ingresa un valor válido para el lado.',
+                icon: 'error'
+            });
             return false;
         }
     }
-
+    Swal.fire({
+        title: 'Procesando la información...',
+        icon: 'success'
+    });
     return true;
 }
 
@@ -66,3 +83,4 @@ function validarNumeroDecimal(input) {
 function volverAIndex() {
     window.location.href = 'index.php';
 }
+
