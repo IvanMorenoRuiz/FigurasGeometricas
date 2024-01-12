@@ -263,7 +263,7 @@ class Circulo extends FiguraGeometrica implements PerimetroM
             if (isset($lado1)) {
                 echo "<p>Medida(s) introducido(s): $lado1 cm";
                 if (isset($lado2)) {
-                    echo ", $lado2";
+                    echo ", $lado2 cm";
                 }
             } elseif (isset($radio)) {
                 echo "<p>Radio introducido: $radio cm";
@@ -295,3 +295,4 @@ class Circulo extends FiguraGeometrica implements PerimetroM
 </body>
 
 </html>
+
